@@ -50,7 +50,7 @@ public class ArtistRecommendation {
         //Removing all html breaks/markers 
         ArrayList<String> breakClean = new ArrayList<>();
         for(int i = 0; i < pClean.size(); i++) {
-            String line = pClean.get(i).replace("–", "(");
+            String line = pClean.get(i).replace("â€“", "(");
             String [] artists = line.split("<br>");
             breakClean.addAll(Arrays.asList(artists));
         }
@@ -62,7 +62,7 @@ public class ArtistRecommendation {
         }
         
         //Setting up delimiter to properly get artists' names
-        String delimiter = "[(•(] (.*?) [(]";
+        String delimiter = "[(â€¢(] (.*?) [(]";
         pattern = Pattern.compile(delimiter);
         
         //Getting the artists' names
@@ -140,7 +140,8 @@ public class ArtistRecommendation {
         }
         return list;
     }
-
+    
+    
     public ArrayList<String> artistRecommendations(String name, Hashtable<String, LinkedList<String>> list){
         ArrayList<String> features = new ArrayList<String>();
         boolean mod = true;
